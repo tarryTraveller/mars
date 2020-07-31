@@ -2,15 +2,12 @@ package com.mars.controller;
 
 import com.mars.service.IProductService;
 import com.mars.vo.Product;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
 @RestController
-@RequestMapping("/prodcut")
+@RequestMapping("/product")
 public class ProductController{
 
     @Resource
@@ -24,7 +21,7 @@ public class ProductController{
     public Object add(@RequestBody Product product) {
         return this.iProductService.add(product) ;
     }
-    @RequestMapping(value="/list")
+    @GetMapping(value="/list")
     public Object list() {
         return this.iProductService.list() ;
     }

@@ -11,6 +11,7 @@
     <modules>
         <module>mars-api</module>
         <module>mars-product</module>
+        <module>mars-consumer</module>
     </modules>
     <properties>
         <jdk.version>1.8</jdk.version>
