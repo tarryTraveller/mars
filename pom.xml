@@ -12,6 +12,10 @@
         <module>mars-api</module>
         <module>mars-product</module>
         <module>mars-consumer</module>
+        <module>mars-security</module>
+        <module>mars-eureka</module>
+        <module>mars-eureka2</module>
+        <module>mars-eureka3</module>
     </modules>
     <properties>
         <jdk.version>1.8</jdk.version>
@@ -44,11 +48,40 @@
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>1.3.0</version>
             </dependency>
+
+            <!--引入api工程-->
+            <dependency>
+                <groupId>com.plan</groupId>
+                <artifactId>mars-api</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <!--引入security工程-->
+            <dependency>
+                <groupId>com.plan</groupId>
+                <artifactId>mars-security</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <delimiters>
+                        <delimiter>$</delimiter>
+                    </delimiters>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

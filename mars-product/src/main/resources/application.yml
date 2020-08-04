@@ -12,6 +12,8 @@ spring:
    url: jdbc:mysql://localhost:3306/mars?serverTimezone=GMT%2B8 # 数据库连接地址
    username: mars # 数据库用户名
    password: mars # 数据库连接密码
+ application:
+    name: mars-product
 
  security:
    user:
@@ -19,7 +21,23 @@ spring:
       password: admin
       roles:
        - USER # 授权角色
-
+  `
 logging:
   level:
     com.mars.mapper: debug
+
+eureka:
+  client: # 客户端进行Eureka注册的配置
+    service-url:
+      defaultZone: http://admin:admin@eureka1:7001/eureka
+  instance:
+      instance-id: mars-product
+      prefer-ip-address: true
+      lease-renewal-interval-in-seconds: 2 # 设置心跳的时间间隔（默认是30秒） 每隔两秒检测一次
+      lease-expiration-duration-in-seconds: 5  # 如果现在超过了5秒的间隔（默认是90秒）超过
+
+info:
+  app.name: mars-product
+  company.name: com.plan
+  build.artifactId: $project.artifactId$
+  build.modelVersion: $project.modelVersion$
