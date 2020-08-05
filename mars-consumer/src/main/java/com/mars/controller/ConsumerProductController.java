@@ -15,9 +15,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/consumer")
 public class ConsumerProductController {
-    public static final String PRODUCT_GET_URL = "http://localhost:8080/product/get/";
-    public static final String PRODUCT_LIST_URL="http://localhost:8080/product/list/";
-    public static final String PRODUCT_ADD_URL = "http://localhost:8080/product/add/";
+    public static final String PRODUCT_GET_URL = "http://MARS-PRODUCT/product/get/";
+    public static final String PRODUCT_LIST_URL="http://MARS-PRODUCT/product/list/";
+    public static final String PRODUCT_ADD_URL = "http://MARS-PRODUCT/product/add/";
     @Resource
     private RestTemplate restTemplate;
     @Resource
@@ -41,8 +41,17 @@ public class ConsumerProductController {
 //        return  result;
 //    }
 
+
     @RequestMapping("/product/get")
     public Object getProduct(long id) {
+//        restTemplate.setErrorHandler(new DefaultResponseErrorHandler(){
+//            @Override
+//            protected void handleError(ClientHttpResponse response, HttpStatus statusCode) throws IOException {
+//                if(response.getStatusCode()!= HttpStatus.UNAUTHORIZED){
+//                    super.handleError(response);
+//                }
+//            }
+//        });
         Product product = restTemplate.exchange(PRODUCT_GET_URL + id, HttpMethod.GET,new HttpEntity<Object>(httpHeaders), Product.class).getBody();
         return  product;
     }

@@ -11,6 +11,8 @@
     <modules>
         <module>mars-api</module>
         <module>mars-product</module>
+        <module>mars-product2</module>
+        <module>mars-product3</module>
         <module>mars-consumer</module>
         <module>mars-security</module>
         <module>mars-eureka</module>

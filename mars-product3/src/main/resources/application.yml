@@ -1,5 +1,5 @@
 server:
- port: 8080
+ port: 8082
 
 mybatis:
  mapper-locations: # 所有的mapper映射文件
@@ -9,7 +9,7 @@ spring:
  datasource:
    type: com.alibaba.druid.pool.DruidDataSource # 配置当前要使用的数据源的操作类型
    driver-class-name: com.mysql.cj.jdbc.Driver # 配置MySQL的驱动程序类
-   url: jdbc:mysql://localhost:3306/mars?serverTimezone=GMT%2B8 # 数据库连接地址
+   url: jdbc:mysql://localhost:3306/mars3?serverTimezone=GMT%2B8 # 数据库连接地址
    username: mars # 数据库用户名
    password: mars # 数据库连接密码
  application:
@@ -31,13 +31,13 @@ eureka:
     service-url:
       defaultZone: http://admin:admin@eureka1:7001/eureka
   instance:
-      instance-id: mars-product
+      instance-id: mars-product3
       prefer-ip-address: true
       lease-renewal-interval-in-seconds: 2 # 设置心跳的时间间隔（默认是30秒） 每隔两秒检测一次
       lease-expiration-duration-in-seconds: 5  # 如果现在超过了5秒的间隔（默认是90秒）超过
 
 info:
-  app.name: mars-product
+  app.name: mars-product3
   company.name: com.plan
   build.artifactId: $project.artifactId$
   build.modelVersion: $project.modelVersion$
