@@ -1,0 +1,2 @@
+之前所用Ribbon都是从Eureka中获取服务并通过@LoadBalanced来实现负载均衡的，
+现在该项目实现Ribbon脱离Eureka来使用

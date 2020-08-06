@@ -14,6 +14,7 @@
         <module>mars-product2</module>
         <module>mars-product3</module>
         <module>mars-consumer</module>
+        <module>mars-consumer-ribbon</module>
         <module>mars-security</module>
         <module>mars-eureka</module>
         <module>mars-eureka2</module>
